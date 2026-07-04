@@ -1,7 +1,6 @@
 package PedidoTest;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.*;
@@ -32,7 +31,7 @@ class CanceladoTest {
 	void errorEliminar() {
 		
 		RuntimeException exEliminar = assertThrows(RuntimeException.class, () -> {cancelado.eliminarProducto(null);});
-		assertEquals("¡El pedido está cancelado!", exEliminar.getMessage());		
+		assertEquals("¡El pedido está cancelado!", exEliminar.getMessage());
 	}
 	
 	@Test

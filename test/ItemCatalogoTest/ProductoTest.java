@@ -24,7 +24,7 @@ class ProductoTest {
 		a1 = mock(Atributo.class);
 		a2 = mock(Atributo.class);
 		
-		p1 = new Producto("SM11", "11", "Samsung", "Celular", 200.0, 0.10, atributos, 20) ;
+		p1 = new Producto("SM11", "11", "Samsung", "Celular", 200.0, 0.10, atributos, 20,300) ;
 	}
 
 	@Test
@@ -93,5 +93,11 @@ class ProductoTest {
 		p1.aumentarStock(3); 
 		
 		assertEquals(p1.getStock(), 22);
+	}
+	
+	@Test
+	void peso() {
+		
+		assertEquals(p1.getPeso(),300);		
 	}
 }

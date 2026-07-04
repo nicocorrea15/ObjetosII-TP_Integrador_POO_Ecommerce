@@ -9,5 +9,6 @@ public interface ItemCatalogo {
 	public void disminuirStock(int n);
 	public void aumentarStock(int n);
 	public int getStock();
+	public int getPeso();
 
 }

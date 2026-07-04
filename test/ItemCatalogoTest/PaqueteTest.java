@@ -154,4 +154,33 @@ class PaqueteTest {
 
 		verify(p3).aumentarStock(5);
 	}
+	
+	@Test
+	void stock() {
+		
+		p1.addProducto(p2);
+		when(p2.getStock()).thenReturn(20);
+		p1.addProducto(p3);
+		when(p3.getStock()).thenReturn(50);
+		p1.addProducto(p6);
+		when(p6.getStock()).thenReturn(100);
+		
+		assertEquals(p1.getStock(),170);
+		
+	}
+	
+	@Test
+	void peso() {
+		
+		p1.addProducto(p2);
+		p1.addProducto(p3);
+		p1.addProducto(p5);
+		
+		when(p2.getPeso()).thenReturn(200);
+		when(p3.getPeso()).thenReturn(300);
+		when(p5.getPeso()).thenReturn(500);
+		
+		assertEquals(p1.getPeso(), 1000);
+		
+	}
 }

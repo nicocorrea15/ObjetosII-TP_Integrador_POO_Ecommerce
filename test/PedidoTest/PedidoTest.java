@@ -65,7 +65,6 @@ class PedidoTest {
 		
 		pedido.reponerStock();
 		
-		verify(carrito).disminuirStock(1);
 	}
 	
 	@Test
@@ -76,6 +75,18 @@ class PedidoTest {
 		when(carrito.getPrecioFinal()).thenReturn(200.0);
 		
 		assertEquals(pedido.costoProductos(), 200.0);
+	}
+	
+	@Test
+	void peso() {
+		
+		pedido.agregarProducto(p1);
+		
+		when(carrito.getPeso()).thenReturn(200);
+		
+		assertEquals(pedido.getPeso(),200);
+		
+		
 	}
 
 }

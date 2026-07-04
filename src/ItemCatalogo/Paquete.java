@@ -71,8 +71,20 @@ public class Paquete implements ItemCatalogo{
 	    }
 	}
 	
+	@Override 
+	public int getPeso() {
+		
+		int total = 0; 
+		
+		for(ItemCatalogo ic: catalogo) {
+			total += ic.getPeso();
+		}
+		return total;
+	}
+	
 	@Override
 	public int getStock() {
+		
 		int total = 0; 
 		
 		for (ItemCatalogo ic: catalogo) {

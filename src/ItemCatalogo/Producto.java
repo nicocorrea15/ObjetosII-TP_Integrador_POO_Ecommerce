@@ -12,10 +12,11 @@ public class Producto implements ItemCatalogo{
 	private double descuentoPromocional;
 	private ArrayList<Atributo> atributos = new ArrayList<>();
 	private int stock;
+	private int peso;
 	
 	public Producto(String id, String nombre, String marca, 
 				String categoria, double precio, double desc, 
-				ArrayList<Atributo> atributos, int stock) {
+				ArrayList<Atributo> atributos, int stock,int peso) {
 		this.id = id; 
 		this.nombre = nombre;
 		this.marca = marca; 
@@ -24,6 +25,7 @@ public class Producto implements ItemCatalogo{
 		this.descuentoPromocional = desc;
 		this.atributos = atributos;
 		this.stock = stock;
+		this.peso = peso;
 	}
 	
 	@Override
@@ -71,6 +73,11 @@ public class Producto implements ItemCatalogo{
 	
 	public void agregarAtributo(Atributo a) {
 		atributos.add(a);
+	}
+	
+	@Override
+	public int getPeso() {
+		return peso;
 	}
 	
 	@Override

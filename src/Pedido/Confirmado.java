@@ -15,7 +15,7 @@ public class Confirmado extends EstadoPedido {
 
 	@Override
 	public void eliminarProducto(ItemCatalogo ic) {
-		throw new RuntimeException("No es posible eliminar en este estado");
+		throw new RuntimeException("No es posible eliminar productos en este estado");
 	}
 
 	@Override
@@ -29,17 +29,14 @@ public class Confirmado extends EstadoPedido {
 		pedido.setEstado(new Cancelado(pedido));
 	}
 
-
 	@Override
 	public void enviado() {
-		throw new RuntimeException("No es posible enviar en este estado");
-		
+		throw new RuntimeException("No es posible enviar en este estado");		
 	}
 
 	@Override
 	public void enPreparacion() {
 		pedido.setEstado(new EnPreparacion(pedido));
-		
 	}
 
 	@Override

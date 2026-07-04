@@ -33,7 +33,6 @@ class BorradorTest {
 		
 		borrador.eliminarProducto(p1);
 		verify(pedido).eliminarProducto(p1);
-		
 	}
 	
 	@Test
@@ -55,7 +54,6 @@ class BorradorTest {
 	void errorEnEnviado() {
 		
 		RuntimeException exEnviado = assertThrows(RuntimeException.class, borrador::enviado);
-
 		assertEquals("No es posible enviar todavia", exEnviado.getMessage());
 	}
 	
@@ -63,7 +61,6 @@ class BorradorTest {
 	void errorEnPreparacion() {
 		
 		RuntimeException exPreparacion = assertThrows(RuntimeException.class, borrador::enPreparacion);
-
 		assertEquals("No es posible pasar a preparacion en este estado", exPreparacion.getMessage());
 	}
 	
@@ -71,8 +68,6 @@ class BorradorTest {
 	void errorEnEntregado() {
 		
 		RuntimeException exEntregado = assertThrows(RuntimeException.class, borrador::entregado);
-
 		assertEquals("No es posible entregar en este estado", exEntregado.getMessage());
 	}
-	
 }

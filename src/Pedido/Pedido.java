@@ -16,6 +16,10 @@ public class Pedido {
 		return estado; 
 	}
 	
+	public float getPeso() {
+		return carrito.getPeso();
+	}
+	
 	public void setEstado(EstadoPedido newEstado) {
 		estado = newEstado;
 	}
@@ -49,9 +53,4 @@ public class Pedido {
 	public double costoProductos() {
 		return carrito.getPrecioFinal();
 	}
-	
-	public double costoEnvio() {
-		return 0;
-	}
-
 }
