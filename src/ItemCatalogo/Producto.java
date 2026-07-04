@@ -11,9 +11,11 @@ public class Producto implements ItemCatalogo{
 	private double precio; 
 	private double descuentoPromocional;
 	private ArrayList<Atributo> atributos = new ArrayList<>();
+	private int stock;
 	
 	public Producto(String id, String nombre, String marca, 
-				String categoria, double precio, double desc, ArrayList<Atributo> atributos) {
+				String categoria, double precio, double desc, 
+				ArrayList<Atributo> atributos, int stock) {
 		this.id = id; 
 		this.nombre = nombre;
 		this.marca = marca; 
@@ -21,6 +23,7 @@ public class Producto implements ItemCatalogo{
 		this.precio = precio; 
 		this.descuentoPromocional = desc;
 		this.atributos = atributos;
+		this.stock = stock;
 	}
 	
 	@Override
@@ -68,6 +71,21 @@ public class Producto implements ItemCatalogo{
 	
 	public void agregarAtributo(Atributo a) {
 		atributos.add(a);
+	}
+	
+	@Override
+	public int getStock() {
+		return stock;
+	}
+
+	@Override
+	public void disminuirStock(int n) {
+		stock -= n;
+	}
+	
+	@Override
+	public void aumentarStock(int n) {
+		stock += n;
 	}
 
 }

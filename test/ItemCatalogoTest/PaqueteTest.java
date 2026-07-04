@@ -1,6 +1,6 @@
 package ItemCatalogoTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import java.util.*;
@@ -122,5 +122,36 @@ class PaqueteTest {
 		when(p6.getPrecioFinal()).thenReturn(100.0);
 		
 		assertEquals(p1.getPrecioFinal(), 773.5);	
+	}
+	
+	@Test
+	void eliminarProductoDeLaLista() {
+		
+		p1.addProducto(p2);
+		p1.addProducto(p3);
+		
+		assertTrue(p1.getCatalogo().contains(p2));
+		
+		p1.deleteProducto(p2);
+		
+		assertFalse(p1.getCatalogo().contains(p2));
+	}
+	
+	@Test
+	void verificarStock() {
+		
+		p1.addProducto(p3);
+				
+		when(p3.getStock()).thenReturn(20);
+		
+		assertEquals(p3.getStock(),20);
+		
+		p1.disminuirStock(1);
+		
+		verify(p3).disminuirStock(1);
+		
+		p1.aumentarStock(5);
+
+		verify(p3).aumentarStock(5);
 	}
 }

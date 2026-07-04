@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Paquete implements ItemCatalogo{
 	
 	private String nombre;
-	private ArrayList<ItemCatalogo> catalogo = new ArrayList<>();
+	private ArrayList<ItemCatalogo> catalogo;
 	private double descuento;
 	
 	public Paquete (String nombre, ArrayList<ItemCatalogo> catalogo, double descuento) {
 		this.nombre = nombre;
-		this.catalogo = catalogo;
+		this.catalogo = new ArrayList<>();
 		this.descuento = descuento;
 	}
 
@@ -39,12 +39,46 @@ public class Paquete implements ItemCatalogo{
 		return nombre;
 	}
 	
+	@Override
+	public void disminuirStock(int n) {
+
+	    for(ItemCatalogo item : catalogo) {
+	        item.disminuirStock(n);
+	    }
+	}
+	
 	public void addProducto(ItemCatalogo p) {
 		catalogo.add(p);
+	}
+	
+	public void deleteProducto(ItemCatalogo p) {
+		catalogo.remove(p);
+	}
+	
+	public ArrayList<ItemCatalogo> getCatalogo() {
+		return catalogo;
 	}
 	
 	public int cantItems() {
 		return catalogo.size();
 	}
 
+	@Override
+	public void aumentarStock(int n) {
+
+	    for(ItemCatalogo item : catalogo) {
+	        item.aumentarStock(n);
+	    }
+	}
+	
+	@Override
+	public int getStock() {
+		int total = 0; 
+		
+		for (ItemCatalogo ic: catalogo) {
+			total += ic.getStock(); 
+		}
+		
+		return total;
+	}
 }
