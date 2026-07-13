@@ -2,26 +2,28 @@ package reporte;
 
 public class VisitorCSV implements VisitorReporte {
 
-
+    private String resultado;
+    
     @Override
     public void visitar(ReporteMasVendidos reporte) {
 
-        System.out.println(
-            "Nombre,Cantidad,Precio Promedio"
-        );
+        String csv = "Nombre,Cantidad,Precio Promedio\n";
 
         for(ItemReporte item : reporte.getItems()) {
 
-            System.out.println(
-                item.getNombre()
-                + ","
-                + item.getCantidadVendida()
-                + ","
-                + item.getPrecioPromedio()
-            );
-
+            csv += item.getNombre()
+                    + ","
+                    + item.getCantidadVendida()
+                    + ","
+                    + item.getPrecioPromedio()
+                    + "\n";
         }
 
+        this.resultado = csv;
     }
 
+
+    public String getResultado() {
+        return resultado;
+    }
 }

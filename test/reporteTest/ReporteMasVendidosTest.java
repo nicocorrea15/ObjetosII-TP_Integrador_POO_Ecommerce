@@ -80,7 +80,7 @@ public class ReporteMasVendidosTest {
     @Test
     void testCantidadYMayor() {
     	
-    	ArrayList<ItemReporte> resultado = reporte.generar(catalogo);
+    	ArrayList<ItemReporte> resultado = reporte.generar();
     	
         assertEquals(3, resultado.size());
         
@@ -95,7 +95,7 @@ public class ReporteMasVendidosTest {
     @Test
     void testCalculaPrecioPromedio() {
 
-        ArrayList<ItemReporte> resultado = reporte.generar(catalogo);
+        ArrayList<ItemReporte> resultado = reporte.generar();
 
         ItemReporte item = resultado.get(1);
         
@@ -110,7 +110,7 @@ public class ReporteMasVendidosTest {
     @Test
     void testOrdenaPorCantidadVendida() {
     	
-        ArrayList<ItemReporte> resultado = reporte.generar(catalogo);
+        ArrayList<ItemReporte> resultado = reporte.generar();
         
         assertEquals(resultado.get(0).getNombre(), "Teclado");
 

@@ -2,6 +2,6 @@ package reporte;
 
 public interface VisitorReporte {
 
-    void visitar(ReporteMasVendidos reporte);
+    public void visitar(ReporteMasVendidos reporte);
 
 }

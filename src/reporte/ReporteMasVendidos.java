@@ -7,17 +7,17 @@ import itemCatalogo.*;
 
 public class ReporteMasVendidos {
 	
-	private Catalogo catalogo; 
+	private Catalogo catalogo;
 	
-    public ReporteMasVendidos(Catalogo catalogo) {
-    	this.catalogo = catalogo;
+    public ReporteMasVendidos(Catalogo catalogo1) {
+    	this.catalogo = catalogo1;
     }
     
     public ArrayList<ItemReporte> getItems() {
-    	return generar(catalogo);
+        return this.generar();
     }
-
-    public ArrayList<ItemReporte> generar(Catalogo catalogo) {
+    
+    public ArrayList<ItemReporte> generar() {
 
         ArrayList<Venta> ventas = catalogo.obtenerVentas();
 
